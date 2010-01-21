@@ -9,8 +9,12 @@ describe Permutations do
   end
 
   describe 'String' do
-    it 'should generate permutations for {}-wrapped options' do
+    it 'should default to generate permutations for comma-separated and {}-wrapped options' do
       "{1,2}{3,4}".permutations.should == %w[13 14 23 24]
+    end
+
+    it 'should accept a custom separator' do
+      "{1|2}{3|4}".permutations("|").should == %w[13 14 23 24]
     end
   end
 end
