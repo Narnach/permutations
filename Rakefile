@@ -31,21 +31,20 @@ end
 
 desc 'Show files missing from gemspec'
 task :diff do
-  files = %w[
-    Rakefile
-    *README* *readme*
-    *LICENSE*
-    *.gemspec deps.rip
-    bin/*
-    lib/**/*
-    spec/**/*
-  ].map {|pattern| Dir.glob(pattern)}.flatten.select{|f| File.file?(f)}
+  all_files_and_dirs = Dir.glob('**/*')
+  files_and_dirs_to_ignore = %w[pkg coverage doc].map {|dir| Dir.glob("#{dir}/**/*")}.flatten
+  files_and_dirs = all_files_and_dirs - files_and_dirs_to_ignore
+  files = files_and_dirs.select{|f| File.file?(f)}
   missing_files = files - spec.files
   extra_files = spec.files - files
-  puts "Missing files:"
-  puts missing_files.join(" ")
-  puts "Extra files:"
-  puts extra_files.join(" ")
+  unless missing_files.empty?
+    puts "Missing files:"
+    puts missing_files.join(" ")
+  end
+  unless extra_files.empty?
+    puts "Extra files:"
+    puts extra_files.join(" ")
+  end
 end
 
 desc 'Uninstall all Fresnel versions and install the latest gem version'
