@@ -17,6 +17,10 @@ describe Permutations do
       "{1|2}{3|4}".permutations("|").should == %w[13 14 23 24]
     end
 
+    it 'should accept a custom regexp separator' do
+      "{1|2}{3,4}".permutations("[|,]", false).should == %w[13 14 23 24]
+    end
+
     it 'should ignore white space wrapping' do
       "{ 1, 2 }{ 3 , 4}".permutations.should == %w[13 14 23 24]
     end
