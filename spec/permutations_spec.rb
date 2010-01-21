@@ -16,5 +16,9 @@ describe Permutations do
     it 'should accept a custom separator' do
       "{1|2}{3|4}".permutations("|").should == %w[13 14 23 24]
     end
+
+    it 'should ignore white space wrapping' do
+      "{ 1, 2 }{ 3 , 4}".permutations.should == %w[13 14 23 24]
+    end
   end
 end
