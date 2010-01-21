@@ -17,6 +17,12 @@ It is possible to use a custom separator, and whitespace surrounding options is 
 By default (custom) separators are regexp-escaped, but this can be turned off to use a regexp to determine the separation; for example when there are multiple separators:
   "{1|2}{3,4}".permutations("[|,]", false) # => ["13", "14", "23", "24"]
 
+== Contributing
+
+Bugs can be reported in Lighthouse. I keep todo items and whatnot there, too. Pull requests on github are welcome, too.
+
+https://narnach.lighthouseapp.com/projects/45010-permutations
+
 == Credits
 
 Created by Wes Oldenbeuving. Licensed under the MIT License.
