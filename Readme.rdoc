@@ -1,6 +1,7 @@
 = Permutations
 
 Generate permutations for nested arrays or strings that offer one or more choices.
+You can use it as a Rails plugin.
 
 == Example
 
