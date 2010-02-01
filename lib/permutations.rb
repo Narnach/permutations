@@ -21,6 +21,7 @@ module Permutations
     def permutations(separator=',', escape_separator=true)
       separator=Regexp.escape(separator) if escape_separator
       matches = self.scan(/(\{\s*(.*?)\s*\})/)
+      return [self] if matches.empty?
       substitutions = matches.map{|match| match[0]}
       permutations = matches.map{|match| match[1].split(/\s*#{separator}\s*/)}.permutations
       permutations.map do |permutation|

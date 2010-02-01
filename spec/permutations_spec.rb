@@ -24,5 +24,9 @@ describe Permutations do
     it 'should ignore white space wrapping' do
       "{ 1, 2 }{ 3 , 4}".permutations.should == %w[13 14 23 24]
     end
+
+    it 'should return one option when there are no permutations' do
+      "foo".permutations.should == ["foo"]
+    end
   end
 end
