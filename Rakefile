@@ -47,7 +47,7 @@ task :diff do
   end
 end
 
-desc 'Uninstall all Fresnel versions and install the latest gem version'
+desc "Uninstall all #{spec.name} versions and install version #{spec.version}"
 task :upgrade do
   system("sudo gem uninstall -a -x #{spec.name} && rake gem && gem install pkg/#{spec.name}-#{spec.version}.gem")
 end
