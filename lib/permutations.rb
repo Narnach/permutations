@@ -1,7 +1,8 @@
 module Permutations
   module Array
-    # Recursively permutate nested arrays.
-    #   [[1,2],[3,4]].permutations # =>[[1,3],[1,4],[2,3],[2,4]]
+    # doctest: Recursively permutate nested arrays.
+    #   >> [[1,2],[3,4]].permutations
+    #   => [[1,3],[1,4],[2,3],[2,4]]
     def permutations(leftovers=self)
       tail = leftovers.last
       return tail.map{|e| [e]} if leftovers.size == 1
@@ -16,8 +17,9 @@ module Permutations
   end
 
   module String
-    # Create all possible string permutations of the available choice groups.
-    #   "{a,b,c}{1,2,3}".permutations # => ["a1", "a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"]
+    # doctest: Create all possible string permutations of the available choice groups.
+    #   >> "{a,b,c}{1,2,3}".permutations
+    #   => ["a1", "a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"]
     def permutations(separator=',', escape_separator=true)
       separator=Regexp.escape(separator) if escape_separator
       matches = self.scan(/(\{\s*(.*?)\s*\})/)
