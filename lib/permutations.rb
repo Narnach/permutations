@@ -1,8 +1,9 @@
 module Permutations
   module Array
-    # doctest: Recursively permutate nested arrays.
-    #   >> [[1,2],[3,4]].permutations
-    #   => [[1,3],[1,4],[2,3],[2,4]]
+    # @param [Array] leftovers remaining elements to recursively permutate through.
+    # @return [Array] Nested array with all permutations
+    # @example
+    #   [[1,2],[3,4]].permutations   #=> [[1,3],[1,4],[2,3],[2,4]]
     def permutations(leftovers=self)
       tail = leftovers.last
       return tail.map{|e| [e]} if leftovers.size == 1
@@ -17,9 +18,11 @@ module Permutations
   end
 
   module String
-    # doctest: Create all possible string permutations of the available choice groups.
-    #   >> "{a,b,c}{1,2,3}".permutations
-    #   => ["a1", "a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"]
+    # @param [String] separator Pattern to split the string on
+    # @param [TrueClass, FalseClass] escape_separator Wether to Regexp-escape the separator and treat it as a literal separator (true) or treat it as a regexp (false)
+    # @return [Array] Nested array with all permutations
+    # @example
+    #   "{a,b,c}{1,2,3}".permutations   #=> ["a1", "a2", "a3", "b1", "b2", "b3", "c1", "c2", "c3"]
     def permutations(separator=',', escape_separator=true)
       separator=Regexp.escape(separator) if escape_separator
       matches = self.scan(/(\{\s*(.*?)\s*\})/)
