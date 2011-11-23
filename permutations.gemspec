@@ -3,8 +3,8 @@ Gem::Specification.new do |s|
   s.name         = 'permutations'
   s.summary      = "Permutations is a library that allows you to generate permutations from Arrays and Strings."
   s.description  = s.summary
-  s.version      = '0.1.3'
-  s.date         = '2010-02-01'
+  s.version      = '0.1.4'
+  s.date         = '2011-11-23'
   s.platform     = Gem::Platform::RUBY
   s.authors      = ["Wes Oldenbeuving"]
   s.email        = "narnach@gmail.com"
